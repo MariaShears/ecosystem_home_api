@@ -1,0 +1,10 @@
+variables:
+  Project name dns friendly: ecosystem_home_api
+  Thing peoject is about, lowercase: recording
+  Thing peoject is about, uppercase: Recording
+features:
+- master:
+    description: Basic template to jumpstart Python + Flask Projects
+- mongo:
+    description: basic mongo db intergration
+    stability: experimental
