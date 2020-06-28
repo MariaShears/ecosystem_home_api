@@ -1,10 +1,10 @@
 import os
 from flask import Flask
-from flask_cors import CORS
+# from flask_cors import CORS
 from flask_mongoengine import MongoEngine
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 # init mongo
 mongo_user = os.environ['MONGO_USER']
