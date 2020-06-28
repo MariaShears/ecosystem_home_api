@@ -1,41 +1,28 @@
 import json
-# from pprint import pprint
+from pprint import pprint
 from mongoengine import *
 
-def parse_raw_recording(raw_record):
+
+def _parse_raw_recording(raw_record):
     data_parts = raw_record["data"].split(',')
     return {
         'device_id': raw_record["coreid"],
         'temp': round(float(data_parts[0]), 2),
-        'humidity': round(float(data_parts[1]),2)
+        'humidity': round(float(data_parts[1]), 2)
     }
 
-            
 
+def save_recording(raw_record):
+    parsed_data = _parse_raw_recording(raw_record)
+    new_record_db_object = _Recording(
+        device_id=parsed_data['device_id'], 
+        # temp=parsed_data['temp'], 
+        # humidity=parsed_data['humidity']
+    )
+    pprint(new_record_db_object)
+    new_record_db_object.save()
 
 class _Recording(Document):
     device_id = StringField(required=True)
-    temp = FloatField(required=True)
-    humidity = FloatField(required=True)
-
-class Recording():
-    def __init__(self, device_id, temp, humidity):
-        recordings = _Recording.objects(external_id=external_id)
-        if len(recordings) > 0:
-            self._recording = recordings[0]
-        else:
-            self._recording = _Recording(external_id=external_id)
-            self._recording.save()
-
-    # def update(self, fields):
-    #     """given a list of tups update the keys on the user"""
-    #     for field in fields:
-    #         self._user[field] = fields[field]
-    #     self._user.save()
-
-    # def dump(self):
-    #     """Return a object that can be json dumped and is clean of _id"""
-    #     json_recording = self._recording.to_json()
-    #     recording = json.loads(json_recording)
-    #     del recording["_id"]
-    #     return recording
+    # temp = FloatField(required=True)
+    # humidity = FloatField(required=True)

@@ -1,7 +1,7 @@
-from app.recording import parse_raw_recording
+from app.recording import _parse_raw_recording
 
 def test_parse_raw_recording():
-    recording = parse_raw_recording({
+    recording = _parse_raw_recording({
         'coreid': 'e00fce681196db3ccb8a7faf',
         'data': '23.900000,73.800003',
         'event': 'temp_c_and_humidity',
