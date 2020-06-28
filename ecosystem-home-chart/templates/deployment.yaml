@@ -43,7 +43,7 @@ spec:
             configMapKeyRef:
               key: MONGO_PW
               name: ecosystem-home-api-config
-        image: registry.gitlab.com/btbtravis/ecosystem-home-api:0.0.1
+        image: cloud.canister.io:5000/travisshears/ecosystem-home:{{ .Values.version | default .Chart.AppVersion }}
         imagePullPolicy: IfNotPresent
         name: ecosystem-home-api-api
         ports:
@@ -52,7 +52,7 @@ spec:
         resources: {}
       dnsPolicy: ClusterFirst
       imagePullSecrets:
-      - name: ecosystem-home-api-gitlab
+      - name: canister
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30

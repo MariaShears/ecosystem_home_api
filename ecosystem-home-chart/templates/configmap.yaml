@@ -1,9 +1,9 @@
 apiVersion: v1
 data:
-  APP_SECRET_KEY: xxxxxxxxxxxxxxxxxxxxxxxxxxxx
-  MONGO_DB: xxxxxxxxxxxx
-  MONGO_USER: xxxxxxxxxxx
-  MONGO_PW: xxxxxxxxxxxxxxxxxxxxxxx
+  APP_SECRET_KEY: 2fo282f8o3fh8o2f8o8999dsfsdf
+  MONGO_DB: ecosystemHome
+  MONGO_USER: ecosystemHomeUser
+  MONGO_PW: ckckckwkwkwkwkwkwkj
 kind: ConfigMap
 metadata:
   labels:

@@ -1,0 +1,5 @@
+# Default values for ecosystem-home-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# version: 0.0.1
+# image_version: 

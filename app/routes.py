@@ -6,7 +6,7 @@ from pprint import pprint
 from app import app
 from app.recording import Recording
 
-api_prefix = '/ecosystem-home-api/api/v1'
+api_prefix = '/ecosystem-home/v1'
 
 # @app.route(f'{api_prefix}/hello', methods=['GET'])
 # def handle_get_hello():
