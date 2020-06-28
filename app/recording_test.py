@@ -12,4 +12,4 @@ def test_parse_raw_recording():
         'temp': 23.9,
         'humidity': 73.8
     }
-    assert recording.dump() ==  assertDictEqual
+    assert recording == expected_output

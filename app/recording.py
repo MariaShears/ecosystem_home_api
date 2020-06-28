@@ -3,10 +3,14 @@ import json
 from mongoengine import *
 
 def parse_raw_recording(raw_record):
+    data_parts = raw_record["data"].split(',')
     return {
-        'device_id': 'xxxx'
+        'device_id': raw_record["coreid"],
+        'temp': round(float(data_parts[0]), 2),
+        'humidity': round(float(data_parts[1]),2)
     }
-    #self._recording = _Recording(external_id=external_id)
+
+            
 
 
 class _Recording(Document):
@@ -14,14 +18,14 @@ class _Recording(Document):
     temp = FloatField(required=True)
     humidity = FloatField(required=True)
 
-# class Recording():
-#     def __init__(self, device_id, temp, humidity):
-        # recordings = _Recording.objects(external_id=external_id)
-        # if len(recordings) > 0:
-        #     self._recording = recordings[0]
-        # else:
-        #     self._recording = _Recording(external_id=external_id)
-        #     self._recording.save()
+class Recording():
+    def __init__(self, device_id, temp, humidity):
+        recordings = _Recording.objects(external_id=external_id)
+        if len(recordings) > 0:
+            self._recording = recordings[0]
+        else:
+            self._recording = _Recording(external_id=external_id)
+            self._recording.save()
 
     # def update(self, fields):
     #     """given a list of tups update the keys on the user"""
